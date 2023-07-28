@@ -1,6 +1,5 @@
 #include <stdio.h> // Library
 #include <unistd.h> // Library
-#include <locale.h> // Library
 
 ///	 GLOBAL SCOPE ///
 int choice;
@@ -14,8 +13,6 @@ float total;
 
 int main() {
     // main
-    setlocale(LC_ALL, "C"); // Setting locale to C (default)
-
     printf("---------Currency Converter---------\n");
     printf("1 = US Dollar (USD)\n");
     printf("2 = Euro (EUR)\n");
