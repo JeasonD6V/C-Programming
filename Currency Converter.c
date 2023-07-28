@@ -1,75 +1,74 @@
-#include <stdio.h> // KÜTÜPHANE
-#include <unistd.h> // KÜTÜPHANE
-#include <locale.h> // KÜTÜPHANE
+#include <stdio.h> // Library
+#include <unistd.h> // Library
+#include <locale.h> // Library
 
 ///	 GLOBAL SCOPE ///
-int secim;
-int sayi1;
-float dolar = 26.98;
+int choice;
+int number1;
+float dollar = 26.98;
 float euro = 30.02;
-float sterlin = 34.68;
+float pound = 34.68;
 float bitcoin = 808.38230;
-float toplam;
+float total;
 ///	 GLOBAL SCOPE ///
 
 int main() {
     // main
-    setlocale(LC_ALL, "Turkish"); // türkçe yapma
+    setlocale(LC_ALL, "C"); // Setting locale to C (default)
 
-    printf("---------Para Birimleri---------\n");
-    printf("1 = Amerikan Dolarý (USD)\n");
+    printf("---------Currency Converter---------\n");
+    printf("1 = US Dollar (USD)\n");
     printf("2 = Euro (EUR)\n");
-    printf("3 = Ýngiliz Sterlini (GBP)\n");
+    printf("3 = British Pound (GBP)\n");
     printf("4 = Bitcoin (BTC)\n");
-    printf("5 = Çýkýþ\n");
-    printf("---------Para Birimleri---------\n");
+    printf("5 = Exit\n");
+    printf("---------Currency Converter---------\n");
 
     sleep(1);
-    printf("Seçiminizi yapýn \n --> ");
-    scanf("%d", &secim); // KULLANICIDAN VERÝ AL
+    printf("Please make your choice \n --> ");
+    scanf("%d", &choice); // Read user input
 
-    switch (secim) {
+    switch (choice) {
         ///////////////////////////////////////////////////////////////////////////////////
-        case 1: // komut1
-            printf("Kaç dolarýnýz var: ");
-            scanf("%d", &sayi1);
-            toplam = sayi1 * dolar; // topla
-            printf("%d dolar, %.2f Türk Lirasýna eþittir.\n", sayi1, toplam);
+        case 1: // command1
+            printf("How many dollars do you have: ");
+            scanf("%d", &number1);
+            total = number1 * dollar; // calculate
+            printf("%d dollars is equal to %.2f Turkish Liras.\n", number1, total);
             break;
         ///////////////////////////////////////////////////////////////////////////////////
 
-        case 2: // komut2
-            printf("Kaç euronuz var: ");
-            scanf("%d", &sayi1); // kullanýcýdan veri al
-            toplam = sayi1 * euro; // topla
-            printf("%d euro, %.2f Türk Lirasýna eþittir.\n", sayi1, toplam);
+        case 2: // command2
+            printf("How many euros do you have: ");
+            scanf("%d", &number1);
+            total = number1 * euro; // calculate
+            printf("%d euros is equal to %.2f Turkish Liras.\n", number1, total);
             break;
         ///////////////////////////////////////////////////////////////////////////////////
 
-        case 3: // komut3
-            printf("Kaç sterlininiz var: ");
-            scanf("%d", &sayi1);
-            toplam = sayi1 * sterlin; // topla
-            printf("%d sterlin, %.2f Türk Lirasýna eþittir.\n", sayi1, toplam);
+        case 3: // command3
+            printf("How many pounds do you have: ");
+            scanf("%d", &number1);
+            total = number1 * pound; // calculate
+            printf("%d pounds is equal to %.2f Turkish Liras.\n", number1, total);
             break;
         ///////////////////////////////////////////////////////////////////////////////////
 
-        case 4: // komut4
-            printf("Kaç bitcoininiz var: ");
-            scanf("%d", &sayi1);
-            toplam = sayi1 * bitcoin; // topla
-            printf("%d bitcoin, %.2f Türk Lirasýna eþittir.\n", sayi1, toplam);
+        case 4: // command4
+            printf("How many bitcoins do you have: ");
+            scanf("%d", &number1);
+            total = number1 * bitcoin; // calculate
+            printf("%d bitcoins is equal to %.2f Turkish Liras.\n", number1, total);
             break;
         ///////////////////////////////////////////////////////////////////////////////////
 
-        case 5: // komut5
-            printf("Çýkýþ yapýlýyor...\n");
-            sleep(1); // 1 saniye bekle
-            printf("Hayýrlý günler dileriz.\n");
+        case 5: // command5
+            printf("Exiting...\n");
+            sleep(1); // Wait for 1 second
+            printf("Have a nice day!\n");
             break;
         ///////////////////////////////////////////////////////////////////////////////////
     }
 
     return 0;
 }
-// alcidi
