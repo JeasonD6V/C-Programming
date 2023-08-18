@@ -1,9 +1,9 @@
 
 	#include <stdio.h>
-
+int score;
 int main() {
 	
-int score;
+
 
     printf("Enter your course score\n-->  ");
     scanf("%d", &score);
