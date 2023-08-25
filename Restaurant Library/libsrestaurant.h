@@ -1,26 +1,25 @@
-
 #include <stdio.h>
 #include <string.h>
 
 struct menu { 
-
     char name[50];
     float price;
 };
 
 void take_order() {
+	
     struct menu food_menu[9]; 
     
     strcpy(food_menu[0].name, "T-Bone Steak");
     food_menu[0].price = 30.00;
 
-    strcpy(food_menu[1].name, "Hamburgers");
+    strcpy(food_menu[1].name, "Hamburger");
     food_menu[1].price = 5.00;
 
     strcpy(food_menu[2].name, "Taco");
     food_menu[2].price = 3.00;
 
-    strcpy(food_menu[3].name, "Sushi Rolls");
+    strcpy(food_menu[3].name, "Sushi Roll");
     food_menu[3].price = 15.00;
 
     strcpy(food_menu[4].name, "Cheesecake");
@@ -39,13 +38,13 @@ void take_order() {
     food_menu[8].price = 7.00;
 
     int order_number;
-    printf("Hello there! How are you? What would you like to order?\n ");
+    printf("Hello sir/madam, welcome to our restaurant. What would you like to order? Our menu is listed below\n ");
     
-    printf("============================================\n");
+    printf("=============================================\n");
     printf("T-Bone Steak (0) - Price: $%.2f \n", food_menu[0].price);
-    printf("Hamburgers (1) - Price: $%.2f \n", food_menu[1].price);
+    printf("Hamburger (1) - Price: $%.2f \n", food_menu[1].price);
     printf("Taco (2) - Price: $%.2f \n", food_menu[2].price);
-    printf("Sushi Rolls (3) - Price: $%.2f \n", food_menu[3].price);
+    printf("Sushi Roll (3) - Price: $%.2f \n", food_menu[3].price);
     printf("Cheesecake (4) - Price: $%.2f \n", food_menu[4].price);
     printf("Coca-Cola (5) - Price: $%.2f \n", food_menu[5].price);
     printf("Clam Chowder (6) - Price: $%.2f \n", food_menu[6].price);
@@ -53,38 +52,48 @@ void take_order() {
     printf("Apple Pie (8) - Price: $%.2f \n", food_menu[8].price);
     printf("\n");
     printf("Exit (9) - Exit from the Restaurant \n");
-    printf("============================================\n-->");
+    printf("============================================\n--> ");
     
     scanf("%d", &order_number);
 
-    if (order_number >= 0 && order_number <= 8) { 
-        if (order_number == 9) {
-            printf("Exiting from the restaurant...\n");
-            return; 
-        } else {
-            char response;
-            printf("You have chosen %s. Would you like to order %s for $%.2f? (Y/N)\n--> ",
-                   food_menu[order_number].name, food_menu[order_number].name, food_menu[order_number].price);
+    if (order_number == 9) {
+        printf("Exiting from the restaurant...\n");
+        return;
+        
+        
+    } else if (order_number >= 0 && order_number <= 8) { 
+        char response;
+        printf("You have chosen %s. Would you like to order %s for $%.2f? (Y/N)\n--> ",
+               food_menu[order_number].name, food_menu[order_number].name, food_menu[order_number].price);
+        
+        
+        scanf(" %c", &response);
+        if (response == 'Y' || response == 'y') {
+            printf("Purchase accepted. Enjoy your meal!\n");
             
-            scanf(" %c", &response );
+            printf("Would you like to order something else? (Y/N)\n--> ");
+            
+            scanf(" %c", &response);
+            
             if (response == 'Y' || response == 'y') {
-                printf("Purchase accepted. Enjoy your meal!\n");
-            	return;
-            	
-            	
-            } else if (response == 'N' || response == 'n') {
-                printf("Purchase declined.\n");
-                return;
+                take_order();  
             } else {
-                printf("Invalid response!\n");
+                printf("Thank you for dining with us!\n");
             }
-        }
-        
-        
+
+            
+            return;
+        } else if (response == 'N' || response == 'n') {
+            printf("Purchase declined.\n");
+            
+        } else {
+            printf("Invalid response!\n");
+        } 
     } else { 
         printf("Invalid order number!\n");
+        
     }
     
     take_order();
-}
-
+    
+}  
